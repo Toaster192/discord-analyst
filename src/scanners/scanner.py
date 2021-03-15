@@ -38,6 +38,12 @@ class Scanner(ABC):
         guild = message.guild
         logs = GuildLogs(guild)
 
+        if message.author.id != 98870222911455232: 
+            await message.channel.send(
+                f"sorry, posloucham jen toastera :( (zatim)", reference=message
+            )
+            return
+
         # If "%cmd help" redirect to "%help cmd"
         if "help" in args:
             await client.bot.help(client, message, "help", args[0])

@@ -251,6 +251,11 @@ class GuildLogs:
 
     @staticmethod
     async def cancel(client: discord.client, message: discord.Message, *args: str):
+        if message.author.id != 98870222911455232: 
+            await message.channel.send(
+                    f"Nice try", reference=message
+                    )
+            return
         logs = GuildLogs(message.guild)
         current_analysis_lock.acquire()
         if logs.log_file in current_analysis:
